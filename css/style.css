@@ -183,11 +183,12 @@ p { color: var(--muted); max-width: 60ch; margin-bottom: 1.5rem; }
 }
 .dest-highlights i { color: var(--sun); }
 
-/* GALERÍA 360 */
+/* GALERÍA 360 ° */
 .gallery { padding: 6rem var(--gutter); background: var(--ocean); }
 .gallery h2 { color: var(--white); }
 .gallery p { color: rgba(255, 255, 255, 0.8); }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+
 .gallery-item {
     position: relative;
     aspect-ratio: 3 / 4;
@@ -203,20 +204,37 @@ p { color: var(--muted); max-width: 60ch; margin-bottom: 1.5rem; }
     text-align: left;
     color: var(--white);
     cursor: pointer;
-    background: #1d4f63 var(--foto) center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family: var(--font-body);
 }
+
 .gallery-item::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(5, 30, 45, 0.85), rgba(5, 30, 45, 0) 60%);
+    z-index: 1;
 }
-.gallery-item > * { position: relative; }
 
-.gallery-item[data-scenario="playa"] { --foto: url('../img/playa.jpg'), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'); }
-.gallery-item[data-scenario="mar"]   { --foto: url('../img/buceo.jpg'), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80'); }
-.gallery-item[data-scenario="selva"] { --foto: url('../img/selva.jpg'), url('https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=600&q=80'); }
+.gallery-item > * { 
+    position: relative; 
+    z-index: 2; 
+}
+
+/* FONDOS VERIFICADOS Y TEMÁTICOS PARA LA GALERÍA 360° */
+.gallery-item[data-scenario="playa"] { 
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'); 
+}
+
+.gallery-item[data-scenario="mar"] { 
+    background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80'); 
+}
+
+.gallery-item[data-scenario="selva"] { 
+    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80'); 
+}
 
 .gallery-title { font: 700 1.6rem var(--font-head); letter-spacing: -0.02em; line-height: 1.1; }
 .gallery-desc { font-size: 0.95rem; color: rgba(255, 255, 255, 0.88); }
