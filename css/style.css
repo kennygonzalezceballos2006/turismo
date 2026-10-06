@@ -229,11 +229,11 @@ p { color: var(--muted); max-width: 60ch; margin-bottom: 1.5rem; }
 }
 
 .gallery-item[data-scenario="mar"] { 
-    background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80'); 
+    background-image: url('../img/Mascaronderproa_buceo_tayona_fun_dive.jpeg'); 
 }
 
 .gallery-item[data-scenario="selva"] { 
-    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80'); 
+    background-image: url('../img/d5b69c_866fb41fd11d465aa2ace4d9a7e0e984~mv2.jpeg'); 
 }
 
 .gallery-title { font: 700 1.6rem var(--font-head); letter-spacing: -0.02em; line-height: 1.1; }
