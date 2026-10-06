@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SanAndrés360 | San Andrés y Providencia en 360°</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- A-Frame: visor 360 (videosphere) -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            SanAndrés<b>360</b>
+        </div>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#tours">Tours</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <a href="#plan" class="btn-primary">Planea tu viaje</a>
+        </div>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-text-overlay">
+            <h1>San Andrés, Providencia y Santa Catalina</h1>
+            <p>Playas de siete colores, arrecifes para bucear y senderos de selva. Recórrelos en 360° antes de viajar.</p>
+            <a href="#destinos" class="btn-dark">Ver destinos</a>
+        </div>
+    </section>
+
+    <!-- DISCOVER / ABOUT SECTION -->
+    <section class="discover">
+        <div class="discover-images">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Playa San Andrés" class="img-back">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Buceo" class="img-front">
+        </div>
+        <div class="discover-text">
+            <h2>Un archipiélago para recorrer con calma</h2>
+            <p>Te ayudamos a elegir dónde bañarte, bucear o caminar en las tres islas, con guías locales y planes a tu ritmo.</p>
+            <a href="#about" class="btn-dark">Sobre nosotros</a>
+        </div>
+    </section>
+
+    <!-- FEATURES GRID -->
+    <section class="features">
+        <div class="feature-item">
+            <h3>El Mejor Precio</h3>
+            <p>Consigue las mejores ofertas para tus viajes.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Seguro y Confiable</h3>
+            <p>Tu seguridad es nuestra máxima prioridad.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Soporte 24/7</h3>
+            <p>Siempre estamos aquí para ayudarte.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Guías Expertos</h3>
+            <p>Expertos locales para una experiencia rica.</p>
+        </div>
+    </section>
+
+    <!-- FEATURED DESTINATIONS -->
+    <section id="destinos" class="featured-destinations">
+        <div class="dest-text">
+            <h2>Lugares del archipiélago</h2>
+            <p>De las playas de arena blanca al mar de coral, cada destino tiene su propio ritmo. Escoge el tuyo.</p>
+            <a href="#galeria-360" class="btn-dark">Ver la galería 360</a>
+        </div>
+        <div class="dest-image-masked"></div>
+    </section>
+
+    <!-- GALLERY / 360 VIEWER -->
+    <section id="galeria-360" class="gallery">
+        <div class="gallery-header">
+            <h2>Recórrelos en 360°</h2>
+            <p>Elige un destino y arrastra el video para mirar a tu alrededor.</p>
+        </div>
+        <div class="gallery-grid">
+            <button class="gallery-item" data-scenario="playa">
+                <span class="gallery-title">Playas con aventura</span>
+                <span class="gallery-desc">Arena blanca, mar turquesa y deportes de agua.</span>
+                <span class="gallery-cta">Ver en 360°</span>
+            </button>
+            <button class="gallery-item" data-scenario="mar">
+                <span class="gallery-title">Aventura submarina</span>
+                <span class="gallery-desc">Buceo entre arrecifes de coral y tortugas.</span>
+                <span class="gallery-cta">Ver en 360°</span>
+            </button>
+            <button class="gallery-item" data-scenario="selva">
+                <span class="gallery-title">Senderismo y naturaleza</span>
+                <span class="gallery-desc">Caminos de selva tropical y manglares.</span>
+                <span class="gallery-cta">Ver en 360°</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- MODAL REPRODUCTOR 360 -->
+    <div id="video-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn" title="Cerrar video">&times;</button>
+
+            <div id="vr-container"></div>
+
+            <div class="player-controls">
+                <button id="btn-playpause" title="Pausar / Reanudar"><i class="fa-solid fa-pause"></i></button>
+                <button id="btn-mute" title="Sonido"><i class="fa-solid fa-volume-xmark"></i></button>
+                <span class="drag-hint">Arrastra para mirar alrededor</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-cta">
+                <div>
+                    <h4>Recibe ofertas del archipiélago</h4>
+                    <p>Novedades y promociones en tu correo.</p>
+                </div>
+            </div>
+            <div class="footer-subscribe">
+                <input type="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico">
+                <button class="btn-subscribe">Suscribirse</button>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
